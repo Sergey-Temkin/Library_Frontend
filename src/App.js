@@ -8,7 +8,6 @@ import Cart from "./components/Cart"
 import BookList from "./components/BookList"
 import CartContext from "./CartContext"
 import LoginContext from "./LoginContext"
-import Total from "./components/Total"
 import { Routes, Route, useNavigate } from "react-router-dom"
 import Login from "./components/Login"
 import { jwtDecode } from "jwt-decode"
@@ -43,7 +42,6 @@ function App() {
               }
             />
           </Routes>
-          <Total />
           <Footer />
         </LoginContext.Provider>
       </CartContext.Provider>
