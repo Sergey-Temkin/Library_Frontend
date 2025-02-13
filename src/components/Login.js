@@ -1,3 +1,4 @@
+// src/components/Login.js
 import axios from "axios"
 import React, { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -12,7 +13,7 @@ function Login() {
   const navigate = useNavigate() // Initialize navigate
 
   function doLogin() {
-    console.log(`login success with username: ${userName} password:${password}`)
+    console.log(`Login success with username: ${userName} password:${password}`)
     const loginData = {
       username: userName,
       password: password,
@@ -22,13 +23,13 @@ function Login() {
       .then((response) => {
         console.log(response.data.access)
         const token = jwtDecode(response.data.access)
-        localStorage.setItem("token", response.data.access)
+        localStorage.setItem("Token", response.data.access)
         setLogin(token)
         navigate("/")
       })
       .catch((error) => {
         console.log(error)
-        setMessage("Login Failed please try again")// error.message
+        setMessage("Login Failed please try again")// Error message
       })
   }
   return (

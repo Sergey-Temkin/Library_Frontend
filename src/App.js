@@ -1,21 +1,23 @@
+// src/App.js
 import "./App.css"
 import { useEffect, useState } from "react"
 import Footer from "./components/Footer"
 import Jumbotron from "./components/Jumbotron"
 import Nav from "./components/Nav"
 import Cart from "./components/Cart"
-import ProductList from "./components/ProductList"
+import BookList from "./components/BookList"
 import CartContext from "./CartContext"
 import LoginContext from "./LoginContext"
 import Total from "./components/Total"
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import Login from "./components/Login"
 import { jwtDecode } from "jwt-decode"
+
 
 function App() {
   const [cart, setCart] = useState([])
   const [login, setLogin] = useState([])
-  const navigate = useNavigate() // Initialize navigate
+  const navigate = useNavigate() // eslint-disable-line no-unused-vars
 
   useEffect(() => {
     const token = localStorage.getItem("token")
@@ -29,7 +31,7 @@ function App() {
           <Jumbotron />
           <Nav />
           <Routes>
-            <Route path="/" element={<ProductList />} />
+            <Route path="/" element={<BookList />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
             <Route

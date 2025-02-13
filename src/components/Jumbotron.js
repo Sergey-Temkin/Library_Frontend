@@ -1,3 +1,4 @@
+// src/components/Jumbotron.js
 import React from "react"
 
 function Jumbotron() {
