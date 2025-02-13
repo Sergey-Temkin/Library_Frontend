@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "ajv": "^8.17.1",
     "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
     "json-server": "^1.0.0-beta.3",
     "jwt-decode": "^4.0.0",
