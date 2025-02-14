@@ -5,6 +5,7 @@ import CartContext from "../../CartContext"
 import { useNavigate } from "react-router-dom"
 import "./BookList.css"
 
+
 function BookList() {
   const [books, setBooks] = useState([])
   const { cart, setCart } = useContext(CartContext)
@@ -29,26 +30,26 @@ function BookList() {
 
   return (
     <div className="booklist-container">
-      <div className="row">
-        {books.map((book, index) => (
-          <div key={index} className="col-sm-4 book-card">
-            <div className="panel panel-primary">
-              <div className="panel-heading">{book.name}</div>
-              <div className="panel-body">
-                <img
-                  src={book.image_url}
-                  className="product-image"
-                  alt={book.name}
-                />
-              </div>
-              <div className="panel-footer">Category: {book.category}</div>
-              <button className="loan-button" onClick={() => addToCart(book)}>
-                Add to cart
-              </button>
-            </div>
+      {books.map((book, index) => (
+        <div key={index} className="book-card">
+          <div className="book-content">
+            <h3 className="book-title">{book.name}</h3>
+            <img
+              src={book.image_url ? book.image_url : "/placeholder.png"}
+              className="book-image"
+              alt={book.name}
+              onError={(e) => {
+                e.target.onerror = null
+                e.target.src = "/placeholder.png"
+              }}
+            />
+            <p className="book-category">Category: {book.category}</p>
+            <button className="loan-button" onClick={() => addToCart(book)}>
+              Loan this book
+            </button>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   )
 }

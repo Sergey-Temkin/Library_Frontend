@@ -3,33 +3,19 @@
   text-align: center;
   background-color: #1e1e1e;
   color: white;
-  padding: 20px;
-}
-
-.footer-form {
+  padding: 10px;
+  font-size: 18px;
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 50px;
 }
 
-.footer-input {
-  padding: 8px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-}
-
-.footer-button {
-  background-color: #dc3545;
-  color: white;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.footer-button:hover {
-  background-color: #a71d2a;
+@media (max-width: 600px) {
+  .footer-container {
+    font-size: 16px;
+    padding: 15px;
+    height: 80px;
+  }
 }

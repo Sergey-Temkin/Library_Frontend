@@ -3,21 +3,18 @@
 /* Main container */
 .aboutUS {
   background-image: linear-gradient(
-    to bottom left,
-    rgb(46, 73, 125) 40%,
-    rgb(4, 19, 52) 30%,
-    rgb(68, 17, 17),
-    rgb(0, 0, 0)
+    rgba(4, 19, 52, 0.6) 30%,
+    rgba(68, 17, 17, 0.4),
+    rgba(0, 0, 0, 0)
   );
   width: 100%;
   height: auto;
   margin: 0;
   padding: 20px;
   display: flex;
-  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  list-style-type: none;
 }
 
 /* Left Image Container */
@@ -32,7 +29,7 @@
   width: 90%;
   height: auto;
   border-radius: 25px 60px;
-  max-width: 600px; /* Prevents image from getting too large */
+  max-width: 600px;
 }
 
 /* Right Text Container */
@@ -40,87 +37,60 @@
   width: 40%;
   padding: 20px;
   text-align: left;
+  font-family: "Poppins", sans-serif;
+  color: rgb(230, 230, 230);
 }
 
 /* Headings */
-.title2,
-.title3 {
-  color: rgb(117, 150, 184);
-  font-weight: bold;
-  font-size: 2rem; /* Responsive font size */
-  letter-spacing: 0.5px;
+.title2 {
+  font-weight: 600;
+  font-size: 2rem;
+  color: rgb(200, 220, 255);
+  letter-spacing: 1px;
+  text-transform: uppercase;
   text-align: center;
 }
 
 /* Paragraph Styling */
 .paragraph {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: white;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  color: rgb(220, 220, 220);
 }
 
 /* Responsive Adjustments */
 @media screen and (max-width: 1024px) {
-  .aboutUS {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .photo {
-    width: 100%;
-  }
-
-  .photo img {
-    width: 80%;
-  }
-
   .aboutShop {
     width: 90%;
     padding: 10px;
   }
 
-  .title2,
-  .title3 {
+  .title2 {
     font-size: 1.8rem;
+  }
+
+  .paragraph {
+    font-size: 1rem;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .photo img {
-    width: 100%;
-  }
-
-  .title2,
-  .title3 {
+  .title2 {
     font-size: 1.5rem;
   }
 
   .paragraph {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .aboutUS {
-    padding: 10px;
-  }
-
-  .title2,
-  .title3 {
+  .title2 {
     font-size: 1.2rem;
   }
 
   .paragraph {
     font-size: 0.85rem;
-  }
-
-  .photo img {
-    width: 100%;
-    border-radius: 15px; /* Adjusted for smaller screens */
-  }
-
-  .aboutShop {
-    width: 100%;
-    padding: 5px;
   }
 }

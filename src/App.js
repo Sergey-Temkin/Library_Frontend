@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useEffect, useState } from "react"
-import {BrowserRouter as Router,Routes,Route,useNavigate,} from "react-router-dom" // eslint-disable-line no-unused-vars
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom" // eslint-disable-line no-unused-vars
 import CartContext from "./CartContext"
 import AboutUs from "./components/AboutUs/AboutUs"
 import LoginContext from "./LoginContext"
@@ -11,7 +11,6 @@ import Jumbotron from "./components/Jumbotron/Jumbotron"
 import Login from "./components/Login/Login"
 import Nav from "./components/Nav/Nav"
 import { jwtDecode } from "jwt-decode"
-import "./App.css"
 
 function App() {
   const [cart, setCart] = useState([])
@@ -28,15 +27,19 @@ function App() {
   return (
     <CartContext.Provider value={{ cart, setCart }}>
       <LoginContext.Provider value={{ login, setLogin }}>
-        <Jumbotron />
-        <Nav />
-        <Routes>
-          <Route path="/" element={<BookList />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/about" element={<AboutUs />} />
-        </Routes>
-        <Footer />
+        <div className="app-container">
+          <Jumbotron />
+          <Nav />
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<BookList />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/about" element={<AboutUs />} />
+            </Routes>
+          </div>
+          <Footer />
+        </div>
       </LoginContext.Provider>
     </CartContext.Provider>
   )
