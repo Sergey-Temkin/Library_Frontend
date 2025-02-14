@@ -17,27 +17,29 @@ function Nav() {
   return (
     <nav className="navbar">
       <div className="container-fluid">
-        <div className="navbar-header">
-          <Link className="navbar-brand" to="/">
+        <div className="navbar-left">
+          <span className="navbar-brand">
             <span className="logo">📚</span> Library
-          </Link>
-        </div>
-        <div className="navbar-links">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+          </span>
+          <div className="navbar-links">
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+          </div>
         </div>
         <div className="navbar-right">
-          {login ? (
-            <>
-              <span>Welcome, {login.username}</span>
-              <button onClick={logout} className="logout-button">
-                Logout
-              </button>
-            </>
-          ) : (
-            <Link to="/login">Login</Link>
-          )}
-          <Link to="/cart">🛒 Cart ({cart.length})</Link>
+          <div className="navbar-links">
+            {login ? (
+              <>
+                <span>Welcome, {login.username}</span>
+                <button onClick={logout} className="logout-button">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link to="/login">Login</Link>
+            )}
+            <Link to="/cart">🛒 Cart ({cart.length})</Link>
+          </div>
         </div>
       </div>
     </nav>

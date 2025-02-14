@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react"
 import {BrowserRouter as Router,Routes,Route,useNavigate,} from "react-router-dom" // eslint-disable-line no-unused-vars
 import CartContext from "./CartContext"
+import AboutUs from "./components/AboutUs/AboutUs"
 import LoginContext from "./LoginContext"
 import BookList from "./components/BookList/BookList"
 import Cart from "./components/Cart/Cart"
@@ -33,7 +34,7 @@ function App() {
           <Route path="/" element={<BookList />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/about" element={<h1>About Page</h1>} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
         <Footer />
       </LoginContext.Provider>
