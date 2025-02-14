@@ -1,0 +1,15 @@
+/* src/components/Jumbotron/Jumbotron.css */
+.jumbotron-container {
+  background-color: #0b0b0b;
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.jumbotron-content h1 {
+  font-size: 2.5rem;
+}
+
+.jumbotron-content p {
+  font-size: 1.2rem;
+}

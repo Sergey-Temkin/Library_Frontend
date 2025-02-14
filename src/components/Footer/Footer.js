@@ -1,20 +1,19 @@
-// src/components/Footer.js
+/* src/components/Footer/Footer.js */
 import React from "react"
+import "./Footer.css"
 
 function Footer() {
-  
   return (
-    <footer class="container-fluid text-center">
+    <footer className="footer-container">
       <p>Online Store Copyright</p>
-      <form class="form-inline">
+      <form className="footer-form">
         Get deals:
         <input
           type="email"
-          class="form-control"
-          size="50"
+          className="footer-input"
           placeholder="Email Address"
         />
-        <button type="button" class="btn btn-danger">
+        <button type="button" className="footer-button">
           Sign Up
         </button>
       </form>

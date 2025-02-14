@@ -1,4 +1,4 @@
-// src/CartContext
+// src/CartContext.js
 import { createContext } from "react"
 
 const CartContext = createContext()

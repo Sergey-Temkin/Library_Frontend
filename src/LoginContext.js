@@ -1,5 +1,5 @@
-// src/LoginContext
-import { createContext } from 'react';
+// src/LoginContext.js
+import { createContext } from "react"
 
-const LoginContext = createContext();
-export default LoginContext;
+const LoginContext = createContext()
+export default LoginContext
