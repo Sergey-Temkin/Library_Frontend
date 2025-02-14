@@ -1,13 +1,24 @@
 /* src/components/Nav/Nav.css */
+
 .navbar {
   background-color: #1e1e1e;
-  padding: 15px;
+  padding: 10px 20px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
 }
 
-.navbar-left {
+.navbar-left,
+.navbar-right {
   display: flex;
   align-items: center;
 }
@@ -20,31 +31,44 @@
   cursor: default;
 }
 
-.navbar-brand {
-  color: white;
-  font-size: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: default; /* Prevents it from acting like a link */
-}
-
-.navbar-brand:hover,
-.navbar-brand:focus {
-  color: white; /* Prevents color change on hover */
-  text-decoration: none;
-}
-
 .navbar-links {
   display: flex;
+  gap: 15px;
 }
 
 .navbar-links a {
   color: white;
-  margin-right: 15px;
   text-decoration: none;
 }
 
+.navbar-search {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+}
+
 .navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.signin-button,
+.login-button,
+.cart-button {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.cart-button {
   display: flex;
   align-items: center;
 }

@@ -1,4 +1,4 @@
-// src/App.js
+// src/App.js 
 import React, { useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom" // eslint-disable-line no-unused-vars
 import CartContext from "./CartContext"
