@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom"
 import "./BookList.css"
 
 
-function BookList() {
-  const [books, setBooks] = useState([])
-  const { cart, setCart } = useContext(CartContext)
-  const navigate = useNavigate()
+function BookList({ searchQuery, category }) {
+  const [books, setBooks] = useState([]);
+  const { cart, setCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getBooks()
@@ -28,9 +28,17 @@ function BookList() {
     }
   }
 
+  // **FILTER LOGIC**
+  const filteredBooks = books.filter((book) => {
+    return (
+      (searchQuery === "" || book.name.toLowerCase().includes(searchQuery)) &&
+      (category === "" || book.category.toLowerCase() === category)
+    );
+  });
+
   return (
     <div className="booklist-container">
-      {books.map((book, index) => (
+      {filteredBooks.map((book, index) => (
         <div key={index} className="book-card">
           <div className="book-content">
             <h3 className="book-title">{book.name}</h3>
@@ -39,8 +47,8 @@ function BookList() {
               className="book-image"
               alt={book.name}
               onError={(e) => {
-                e.target.onerror = null
-                e.target.src = "/placeholder.png"
+                e.target.onerror = null;
+                e.target.src = "/placeholder.png";
               }}
             />
             <p className="book-category">Category: {book.category}</p>
@@ -51,7 +59,7 @@ function BookList() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 export default BookList

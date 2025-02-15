@@ -17,6 +17,8 @@ import { jwtDecode } from "jwt-decode"
 function App() {
   const [cart, setCart] = useState([])
   const [login, setLogin] = useState(null)
+  const [searchQuery, setSearchQuery] = useState("");
+  const [category, setCategory] = useState("");
   const navigate = useNavigate() // eslint-disable-line no-unused-vars
 
   useEffect(() => {
@@ -31,10 +33,10 @@ function App() {
       <LoginContext.Provider value={{ login, setLogin }}>
         <div className="app-container">
           <Jumbotron />
-          <Nav />
+          <Nav setSearchQuery={setSearchQuery} setCategory={setCategory} />
           <div className="content">
             <Routes>
-              <Route path="/" element={<BookList />} />
+              <Route path="/" element={<BookList searchQuery={searchQuery} category={category} />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/login" element={<Login />} />
               <Route path="/about" element={<AboutUs />} />

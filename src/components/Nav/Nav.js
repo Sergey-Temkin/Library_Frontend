@@ -1,14 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../CartContext";
 import LoginContext from "../../LoginContext";
 import "./Nav.css";
 
-function Nav() {
+function Nav({ setSearchQuery, setCategory }) {
   const { cart } = useContext(CartContext);
   const { login, setLogin } = useContext(LoginContext);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [category, setCategory] = useState("");
   const categories = ["Romance", "Action", "Mystery", "Sci-Fi", "Fantasy", "Non-Fiction"];
 
   function logout() {
@@ -35,17 +33,17 @@ function Nav() {
           type="text"
           className="search-input"
           placeholder="Search books..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => setSearchQuery(e.target.value.toLowerCase())}
         />
         <div className="dropdown">
-          <button className="dropbtn">{category || "Select Category"}</button>
+          <button className="dropbtn">Select Category</button>
           <div className="dropdown-content">
             {categories.map((cat) => (
-              <span key={cat} onClick={() => setCategory(cat)}>
+              <span key={cat} onClick={() => setCategory(cat.toLowerCase())}>
                 {cat}
               </span>
             ))}
+            <span onClick={() => setCategory("")}>All Categories</span>
           </div>
         </div>
       </div>
