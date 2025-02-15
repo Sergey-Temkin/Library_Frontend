@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
-import API from "./api";
 
 const LoginContext = createContext(null);
 
@@ -12,38 +11,33 @@ export function LoginProvider({ children }) {
     if (accessToken) {
       try {
         const decoded = jwtDecode(accessToken);
-        setLogin(decoded);
+        console.log("✅ Auto-login detected, setting login context:", decoded);
+
+        // Ensure `username` is stored in the state
+        const storedUsername = localStorage.getItem("username");
+        const loginData = {
+          ...decoded,
+          username: storedUsername, // Retrieve username from storage
+        };
+
+        setLogin(loginData);
       } catch (err) {
+        console.error("❌ Invalid token, logging out...");
         handleLogout();
       }
     }
   }, []);
 
-  async function refreshAccessToken() {
-    try {
-      const refreshToken = localStorage.getItem("refreshToken");
-      if (!refreshToken) return handleLogout();
-
-      const response = await API.post("refresh/", {
-        refresh: refreshToken,
-      });
-
-      const newAccessToken = response.data.access;
-      localStorage.setItem("accessToken", newAccessToken);
-      setLogin(jwtDecode(newAccessToken));
-    } catch (err) {
-      handleLogout();
-    }
-  }
-
   function handleLogout() {
+    console.log("🚪 Logging out...");
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
+    localStorage.removeItem("username"); // Remove stored username
     setLogin(null);
   }
 
   return (
-    <LoginContext.Provider value={{ login, setLogin, refreshAccessToken, handleLogout }}>
+    <LoginContext.Provider value={{ login, setLogin, handleLogout }}>
       {children}
     </LoginContext.Provider>
   );

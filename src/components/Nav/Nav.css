@@ -110,7 +110,7 @@
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
-  cursor: default;
+  cursor: none;
   display: flex;
   align-items: center;
 }
@@ -131,6 +131,18 @@
 .navbar-links a:hover {
   color: #bbb;
 }
+
+/* Style for Logout Button */
+.logout-link {
+  font-size: 18px;
+  color: #ff4d4d; /* Red color for logout */
+  cursor: pointer; /* Ensures it looks clickable */
+}
+
+.logout-link:hover {
+  color: #cc0000; /* Darker red on hover */
+}
+
 /* Ensure Right Side Text (Sign In, Login, Cart) Matches */
 .signin-button,
 .login-button,

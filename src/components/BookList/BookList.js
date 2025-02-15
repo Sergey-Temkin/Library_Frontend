@@ -3,13 +3,14 @@ import axios from "axios"
 import React, { useContext, useEffect, useState } from "react"
 import CartContext from "../../CartContext"
 import { useNavigate } from "react-router-dom"
+import { LoginContext } from "../../LoginContext";
 import "./BookList.css"
 
-
 function BookList({ searchQuery, category }) {
-  const [books, setBooks] = useState([]);
-  const { cart, setCart } = useContext(CartContext);
-  const navigate = useNavigate();
+  const [books, setBooks] = useState([])
+  const { cart, setCart } = useContext(CartContext)
+  const { login } = useContext(LoginContext)
+  const navigate = useNavigate()
 
   useEffect(() => {
     getBooks()
@@ -33,8 +34,8 @@ function BookList({ searchQuery, category }) {
     return (
       (searchQuery === "" || book.name.toLowerCase().includes(searchQuery)) &&
       (category === "" || book.category.toLowerCase() === category)
-    );
-  });
+    )
+  })
 
   return (
     <div className="booklist-container">
@@ -47,19 +48,22 @@ function BookList({ searchQuery, category }) {
               className="book-image"
               alt={book.name}
               onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = "/placeholder.png";
+                e.target.onerror = null
+                e.target.src = "/placeholder.png"
               }}
             />
             <p className="book-category">Category: {book.category}</p>
-            <button className="loan-button" onClick={() => addToCart(book)}>
-              Loan this book
+            <button
+              className="loan-button"
+              onClick={() => (login ? addToCart(book) : navigate("/login"))}
+            >
+              {login ? "Loan this book" : "Login to Loan"}
             </button>
           </div>
         </div>
       ))}
     </div>
-  );
+  )
 }
 
 export default BookList

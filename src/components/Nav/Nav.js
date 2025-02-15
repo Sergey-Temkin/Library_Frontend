@@ -1,19 +1,24 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import CartContext from "../../CartContext";
-import { LoginContext } from "../../LoginContext"; // Ensure correct import
-import "./Nav.css";
+import React, { useContext, useEffect } from "react"
+import { Link } from "react-router-dom"
+import CartContext from "../../CartContext"
+import { LoginContext } from "../../LoginContext"
+import "./Nav.css"
 
 function Nav({ setSearchQuery, setCategory }) {
-  const { cart } = useContext(CartContext) || { cart: [] }; // ✅ Prevent undefined
-  const { login, setLogin } = useContext(LoginContext) || {}; // ✅ Prevent undefined
-  const categories = ["Romance", "Action", "Mystery", "Sci-Fi", "Fantasy", "Non-Fiction"];
+  const { cart } = useContext(CartContext) || { cart: [] }
+  const { login, handleLogout } = useContext(LoginContext) || {}
+  const categories = [
+    "Romance",
+    "Action",
+    "Mystery",
+    "Sci-Fi",
+    "Fantasy",
+    "Non-Fiction",
+  ]
 
-  function logout() {
-    setLogin(null);
-    localStorage.removeItem("accessToken"); // ✅ Match token key with Login.js
-    localStorage.removeItem("refreshToken"); // ✅ Clear refresh token too
-  }
+  useEffect(() => {
+    console.log("🔄 Navbar re-rendered, login state:", login)
+  }, [login])
 
   return (
     <nav className="navbar">
@@ -49,21 +54,34 @@ function Nav({ setSearchQuery, setCategory }) {
         </div>
       </div>
 
-      {/* RIGHT SECTION: Sign In, Login, Cart */}
+      {/* RIGHT SECTION: Login / Logout */}
       <div className="navbar-right">
-        {!login?.username && <Link to="/signup" className="signin-button">Sign In</Link>}
-        {login?.username ? (
+        {!login?.username ? (
           <>
-            <span className="welcome-text">Welcome, {login.username}</span>
-            <button onClick={logout} className="logout-button">Logout</button>
+            <Link to="/signup" className="signin-button">
+              Sign In
+            </Link>
+            <Link to="/login" className="login-button">
+              Login
+            </Link>
           </>
         ) : (
-          <Link to="/login" className="login-button">Login</Link>
+          <>
+            <span className="welcome-text">Welcome: {login.username}</span>
+            <span className="navbar-link logout-link" onClick={handleLogout}>
+              Logout
+            </span>
+          </>
         )}
-        <Link to="/cart" className="cart-button">🛒 Cart ({cart?.length || 0})</Link>
+
+        {login?.username && (
+          <Link to="/cart" className="cart-button">
+            🛒 Cart ({cart?.length || 0})
+          </Link>
+        )}
       </div>
     </nav>
-  );
+  )
 }
 
-export default Nav;
+export default Nav
