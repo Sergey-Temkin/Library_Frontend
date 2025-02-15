@@ -52,7 +52,18 @@
   max-width: 300px;
   padding: 5px 10px;
   border-radius: 5px;
-  border: none;
+  border: 1px solid #444; /* Subtle border */
+  background-color: black; /* Black background */
+  color: white; /* White text */
+  outline: none; /* Remove focus outline */
+}
+
+.search-input::placeholder {
+  color: #bbb; /* Light grey placeholder for visibility */
+}
+
+.search-input:focus {
+  border-color: #888; /* Highlight border on focus */
 }
 
 .navbar-right {

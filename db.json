@@ -5,7 +5,7 @@
       "name": "Pride and Prejudice",
       "author": "Jane Austen",
       "year_published": 1813,
-      "category": "romance",
+      "category": "Romance",
       "inventory": 1,
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/PrideAndPrejudiceTitlePage.jpg/800px-PrideAndPrejudiceTitlePage.jpg"
     },
@@ -13,7 +13,7 @@
       "name": "The Bourne Identity",
       "author": "Robert Ludlum",
       "year_published": 1980,
-      "category": "action",
+      "category": "Action",
       "inventory": 2,
       "image_url": "https://upload.wikimedia.org/wikipedia/en/6/65/Ludlum_-_The_Bourne_Identity_Coverart.png"
     },
@@ -21,7 +21,7 @@
       "name": "The Hunger Games",
       "author": "Suzanne Collins",
       "year_published": 2008,
-      "category": "action",
+      "category": "Action",
       "inventory": 2,
       "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/The_Hunger_Games.jpg/220px-The_Hunger_Games.jpg"
     },
@@ -29,7 +29,7 @@
       "name": "Gone Girl",
       "author": "Gillian Flynn",
       "year_published": 2012,
-      "category": "mystery",
+      "category": "Mystery",
       "inventory": 3,
       "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7e/Gone_Girl_%28Flynn_novel%29.jpg/220px-Gone_Girl_%28Flynn_novel%29.jpg"
     },
@@ -37,7 +37,7 @@
       "name": "The Da Vinci Code",
       "author": "Dan Brown",
       "year_published": 2003,
-      "category": "mystery",
+      "category": "Mystery",
       "inventory": 3,
       "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/DaVinciCode.jpg/220px-DaVinciCode.jpg"
     },
@@ -45,7 +45,7 @@
       "name": "Dune",
       "author": "Frank Herbert",
       "year_published": 1965,
-      "category": "sci-fi",
+      "category": "Sci-Fi",
       "inventory": 1,
       "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/d/de/Dune-Frank_Herbert_%281965%29_First_edition.jpg/220px-Dune-Frank_Herbert_%281965%29_First_edition.jpg"
     },
@@ -53,7 +53,7 @@
       "name": "The Hobbit",
       "author": "J.R.R. Tolkien",
       "year_published": 1937,
-      "category": "fantasy",
+      "category": "Fantasy",
       "inventory": 2,
       "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/TheHobbit_FirstEdition.jpg/220px-TheHobbit_FirstEdition.jpg"
     },
@@ -61,7 +61,7 @@
       "name": "The Power of Habit",
       "author": "Charles Duhigg",
       "year_published": 2012,
-      "category": "non-fiction",
+      "category": "Non-Fiction",
       "inventory": 3,
       "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7f/The_Power_of_Habit.jpg/220px-The_Power_of_Habit."
     },
@@ -69,19 +69,12 @@
       "name": "Educated: A Memoir",
       "author": "Tara Westover",
       "year_published": 2018,
-      "category": "non-fiction",
+      "category": "Non-Fiction",
       "inventory": 3,
       "image_url": ""
     }
   ],
   "cart": [
-    {
-      "product_id": 1,
-      "quantity": 5
-    },
-    {
-      "product_id": 2,
-      "quantity": 3
-    }
+
   ]
 }
