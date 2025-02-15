@@ -1,4 +1,3 @@
-
 {
   "books": [
     {
@@ -74,7 +73,22 @@
       "image_url": ""
     }
   ],
-  "cart": [
-
-  ]
+  "user": [
+    {
+      "username": "Tal",
+      "email": "Tal@example.com",
+      "password": "inalog123"
+    },
+    {
+      "username": "Gal",
+      "email": "Gal@example.com",
+      "password": "inalog123"
+    },
+    {
+      "username": "Ben",
+      "email": "Ben@example.com",
+      "password": "inalog123"
+    }
+  ],
+  "cart": []
 }

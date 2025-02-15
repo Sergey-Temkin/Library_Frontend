@@ -1,17 +1,18 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../CartContext";
-import LoginContext from "../../LoginContext";
+import { LoginContext } from "../../LoginContext"; // Ensure correct import
 import "./Nav.css";
 
 function Nav({ setSearchQuery, setCategory }) {
-  const { cart } = useContext(CartContext);
-  const { login, setLogin } = useContext(LoginContext);
+  const { cart } = useContext(CartContext) || { cart: [] }; // ✅ Prevent undefined
+  const { login, setLogin } = useContext(LoginContext) || {}; // ✅ Prevent undefined
   const categories = ["Romance", "Action", "Mystery", "Sci-Fi", "Fantasy", "Non-Fiction"];
 
   function logout() {
     setLogin(null);
-    localStorage.removeItem("token");
+    localStorage.removeItem("accessToken"); // ✅ Match token key with Login.js
+    localStorage.removeItem("refreshToken"); // ✅ Clear refresh token too
   }
 
   return (
@@ -50,8 +51,8 @@ function Nav({ setSearchQuery, setCategory }) {
 
       {/* RIGHT SECTION: Sign In, Login, Cart */}
       <div className="navbar-right">
-        {!login && <Link to="/signup" className="signin-button">Sign In</Link>}
-        {login ? (
+        {!login?.username && <Link to="/signup" className="signin-button">Sign In</Link>}
+        {login?.username ? (
           <>
             <span className="welcome-text">Welcome, {login.username}</span>
             <button onClick={logout} className="logout-button">Logout</button>
@@ -59,7 +60,7 @@ function Nav({ setSearchQuery, setCategory }) {
         ) : (
           <Link to="/login" className="login-button">Login</Link>
         )}
-        <Link to="/cart" className="cart-button">🛒 Cart ({cart.length})</Link>
+        <Link to="/cart" className="cart-button">🛒 Cart ({cart?.length || 0})</Link>
       </div>
     </nav>
   );

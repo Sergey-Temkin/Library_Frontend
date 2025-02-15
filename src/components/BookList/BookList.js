@@ -16,7 +16,7 @@ function BookList({ searchQuery, category }) {
   }, [])
 
   function getBooks() {
-    axios.get("http://localhost:3005/books/").then((response) => {
+    axios.get("http://127.0.0.1:8000/api/library/books/").then((response) => {
       setBooks(response.data)
     })
   }

@@ -1,52 +1,57 @@
-/* src/components/Login/Login.js */
-import axios from "axios"
-import React, { useContext, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import LoginContext from "../../LoginContext"
-import { jwtDecode } from "jwt-decode"
-import "./Login.css"
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import API from "../../api";  // ✅ Import centralized Axios instance
+import { LoginContext } from "../../LoginContext";  // ✅ Ensure correct import
+import "./Login.css";
 
 function Login() {
-  const [userName, setUserName] = useState("")
-  const [password, setPassword] = useState("")
-  const [message, setMessage] = useState("")
-  const { login, setLogin } = useContext(LoginContext) // eslint-disable-line no-unused-vars
-  const navigate = useNavigate()
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
-  function doLogin() {
-    const loginData = {
-      username: userName,
-      password: password,
+  // ✅ Prevent undefined errors
+  const loginContext = useContext(LoginContext) || {};
+  const { setLogin } = loginContext;
+
+  const navigate = useNavigate();
+
+  async function doLogin() {
+    try {
+      const response = await API.post("login/", {
+        username: userName,
+        password: password,
+      });
+
+      const { access, refresh } = response.data;
+      const decodedToken = jwtDecode(access);
+
+      localStorage.setItem("accessToken", access);
+      localStorage.setItem("refreshToken", refresh);
+
+      if (setLogin) {
+        setLogin(decodedToken);
+      }
+
+      setMessage("Login successful! Redirecting...");
+      setTimeout(() => navigate("/"), 1500);
+    } catch (error) {
+      setMessage("Login failed! Please try again.");
     }
-    axios
-      .post("http://127.0.0.1:8000/login/", loginData)
-      .then((response) => {
-        const token = jwtDecode(response.data.access)
-        localStorage.setItem("Token", response.data.access)
-        setLogin(token)
-        navigate("/")
-      })
-      .catch(() => {
-        setMessage("Login Failed, please try again")
-      })
   }
 
   return (
     <div className="login-container">
-      <div className="alert alert-success">{message}</div>
+      {message && <div className="alert">{message}</div>}
       <label>Username:</label>
       <input value={userName} onChange={(e) => setUserName(e.target.value)} />
       <br />
       <label>Password:</label>
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       <br />
       <button onClick={doLogin}>Login</button>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
