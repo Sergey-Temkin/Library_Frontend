@@ -4,33 +4,118 @@
   background-color: #1e1e1e;
   padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
 }
 
-.container {
+/* Ensure the Navbar Left and Right are evenly distributed */
+.navbar-left {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
   align-items: center;
+  flex: 1;
+  gap: 15px;
 }
 
-.navbar-left,
+/* Center the Search Bar Properly */
+.navbar-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+/* Navbar Right: Sign In, Login, Cart */
 .navbar-right {
   display: flex;
   align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+  gap: 15px;
 }
 
+/* Fix Search Bar */
+.search-input {
+  width: 250px;
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: black;
+  color: white;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #bbb;
+}
+
+.search-input:focus {
+  border-color: #888;
+}
+
+/* Dropdown Styling */
+.dropdown {
+  position: relative;
+  display: flex;
+}
+
+.dropbtn {
+  background-color: #444;
+  color: white;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content span {
+  color: white;
+  padding: 10px;
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-content span:hover {
+  background-color: #555;
+}
+
+/* Ensure buttons in navbar are spaced correctly */
+.signin-button,
+.login-button,
+.cart-button {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+/* Fix Library Logo */
 .navbar-brand {
   color: white;
-  font-size: 20px;
-  text-decoration: none;
+  font-size: 18px;
   font-weight: bold;
+  text-decoration: none;
   cursor: default;
+  display: flex;
+  align-items: center;
 }
 
+/* Fix Navbar Links */
 .navbar-links {
   display: flex;
   gap: 15px;
@@ -39,60 +124,20 @@
 .navbar-links a {
   color: white;
   text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
 }
 
-.navbar-search {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
+.navbar-links a:hover {
+  color: #bbb;
 }
-
-.search-input {
-  width: 100%;
-  max-width: 300px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #444; /* Subtle border */
-  background-color: black; /* Black background */
-  color: white; /* White text */
-  outline: none; /* Remove focus outline */
-}
-
-.search-input::placeholder {
-  color: #bbb; /* Light grey placeholder for visibility */
-}
-
-.search-input:focus {
-  border-color: #888; /* Highlight border on focus */
-}
-
-.navbar-right {
-  display: flex;
-  align-items: center;
-}
-
+/* Ensure Right Side Text (Sign In, Login, Cart) Matches */
 .signin-button,
 .login-button,
-.cart-button {
-  color: white;
+.cart-button,
+.welcome-text {
+  font-size: 18px;  /* Same as left side */
   text-decoration: none;
-  padding: 5px 10px;
-}
-
-.cart-button {
-  display: flex;
-  align-items: center;
-}
-
-.logout-button {
-  background-color: red;
   color: white;
-  border: none;
   padding: 5px 10px;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-.logout-button:hover {
-  background-color: darkred;
 }
