@@ -13,7 +13,9 @@ function Login() {
   const { setLogin } = useContext(LoginContext)
   const navigate = useNavigate()
 
-  async function doLogin() {
+  async function doLogin(event) {
+    event.preventDefault() // Prevents default form submission behavior
+
     try {
       const response = await API.post("login/", {
         username: userName,
@@ -25,21 +27,27 @@ function Login() {
 
       console.log("✅ Login successful, decoded token:", decodedToken)
 
-      // Store username separately in localStorage
       localStorage.setItem("accessToken", access)
       localStorage.setItem("refreshToken", refresh)
-      localStorage.setItem("username", userName) // ✅ Store username separately
+      localStorage.setItem("username", userName)
 
       const loginData = {
         ...decodedToken,
-        username: userName, // Use stored username
+        username: userName,
       }
 
       console.log("✅ Setting login context:", loginData)
       setLogin(loginData)
 
       setMessage("Login successful! Redirecting...")
-      setTimeout(() => navigate("/"), 1500)
+
+      setTimeout(() => {
+        console.log(
+          "🔄 Redirecting user to:",
+          decodedToken.is_admin ? "/admin" : "/"
+        )
+        navigate(decodedToken.is_admin ? "/admin" : "/", { replace: true })
+      }, 1000)
     } catch (error) {
       console.error("❌ Login failed:", error)
       setMessage("Login failed! Please try again.")
@@ -49,17 +57,24 @@ function Login() {
   return (
     <div className="login-container">
       {message && <div className="alert">{message}</div>}
-      <label>Username:</label>
-      <input value={userName} onChange={(e) => setUserName(e.target.value)} />
-      <br />
-      <label>Password:</label>
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br />
-      <button onClick={doLogin}>Login</button>
+      <form onSubmit={doLogin}>
+        <label>Username:</label>
+        <input
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+          required
+        />
+        <br />
+        <label>Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <br />
+        <button type="submit">Login</button>
+      </form>
     </div>
   )
 }

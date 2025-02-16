@@ -1,9 +1,9 @@
 /* src/components/BookList/BookList.js */
-import axios from "axios"
+import API from "../../api";
 import React, { useContext, useEffect, useState } from "react"
 import CartContext from "../../CartContext"
 import { useNavigate } from "react-router-dom"
-import { LoginContext } from "../../LoginContext";
+import { LoginContext } from "../../LoginContext"; 
 import "./BookList.css"
 
 function BookList({ searchQuery, category }) {
@@ -17,9 +17,9 @@ function BookList({ searchQuery, category }) {
   }, [])
 
   function getBooks() {
-    axios.get("http://127.0.0.1:8000/api/library/books/").then((response) => {
-      setBooks(response.data)
-    })
+    API.get("books/").then((response) => {
+      setBooks(response.data);
+    });
   }
 
   function addToCart(book) {

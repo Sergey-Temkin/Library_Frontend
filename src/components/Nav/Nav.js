@@ -1,12 +1,12 @@
-import React, { useContext, useEffect } from "react"
-import { Link } from "react-router-dom"
-import CartContext from "../../CartContext"
-import { LoginContext } from "../../LoginContext"
-import "./Nav.css"
+import React, { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import CartContext from "../../CartContext";
+import { LoginContext } from "../../LoginContext";
+import "./Nav.css";
 
 function Nav({ setSearchQuery, setCategory }) {
-  const { cart } = useContext(CartContext) || { cart: [] }
-  const { login, handleLogout } = useContext(LoginContext) || {}
+  const { cart } = useContext(CartContext) || { cart: [] };
+  const { login, handleLogout } = useContext(LoginContext) || {};
   const categories = [
     "Romance",
     "Action",
@@ -14,11 +14,11 @@ function Nav({ setSearchQuery, setCategory }) {
     "Sci-Fi",
     "Fantasy",
     "Non-Fiction",
-  ]
+  ];
 
   useEffect(() => {
-    console.log("🔄 Navbar re-rendered, login state:", login)
-  }, [login])
+    console.log("🔄 Navbar re-rendered, login state:", login);
+  }, [login]);
 
   return (
     <nav className="navbar">
@@ -68,6 +68,14 @@ function Nav({ setSearchQuery, setCategory }) {
         ) : (
           <>
             <span className="welcome-text">Welcome: {login.username}</span>
+
+            {/* ADMIN DASHBOARD BUTTON */}
+            {login?.is_admin && (
+              <Link to="/admin" className="admin-button">
+                🛠 Admin
+              </Link>
+            )}
+
             <span className="navbar-link logout-link" onClick={handleLogout}>
               Logout
             </span>
@@ -81,7 +89,7 @@ function Nav({ setSearchQuery, setCategory }) {
         )}
       </div>
     </nav>
-  )
+  );
 }
 
-export default Nav
+export default Nav;
