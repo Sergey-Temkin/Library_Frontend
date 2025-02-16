@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 
-/* Ensure the Navbar Left and Right are evenly distributed */
+/* Left Section: Library Logo & Links */
 .navbar-left {
   display: flex;
   align-items: center;
@@ -18,23 +18,44 @@
   gap: 15px;
 }
 
-/* Center the Search Bar Properly */
+.navbar-brand {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: default;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Apply hover effect to all buttons except Library */
+.navbar-links a:hover,
+.signin-button:hover,
+.login-button:hover,
+.cart-button:hover {
+  color: #bbb;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Center Section: Search Bar & Category Dropdown */
 .navbar-center {
   flex: 2;
   display: flex;
   justify-content: center;
 }
 
-/* Navbar Right: Sign In, Login, Cart */
-.navbar-right {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  justify-content: flex-end;
-  gap: 15px;
-}
-
-/* Fix Search Bar */
 .search-input {
   width: 250px;
   padding: 6px;
@@ -96,43 +117,24 @@
   background-color: #555;
 }
 
-/* Ensure buttons in navbar are spaced correctly */
-.signin-button,
-.login-button,
-.cart-button {
-  color: white;
-  text-decoration: none;
-  padding: 5px 10px;
-}
-/* Fix Library Logo */
-.navbar-brand {
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: none;
+/* Right Section: Sign In, Login, Cart */
+.navbar-right {
   display: flex;
   align-items: center;
-}
-
-/* Fix Navbar Links */
-.navbar-links {
-  display: flex;
+  flex: 1;
+  justify-content: flex-end;
   gap: 15px;
 }
 
-.navbar-links a {
-  color: white;
-  text-decoration: none;
+.signin-button,
+.login-button,
+.cart-button {
   font-size: 18px;
-  transition: color 0.3s ease-in-out;
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
 }
 
-.navbar-links a:hover {
-  color: #bbb;
-}
-
-/* Style for Logout Button */
 .logout-link {
   font-size: 18px;
   color: #ff4d4d; /* Red color for logout */
@@ -143,13 +145,16 @@
   color: #cc0000; /* Darker red on hover */
 }
 
-/* Ensure Right Side Text (Sign In, Login, Cart) Matches */
-.signin-button,
-.login-button,
-.cart-button,
-.welcome-text {
-  font-size: 18px;  /* Same as left side */
-  text-decoration: none;
+.library-logo {
   color: white;
-  padding: 5px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: default;
+  display: flex;
+  align-items: center;
+}
+
+.welcome-text{
+  font-size: 18px;
 }

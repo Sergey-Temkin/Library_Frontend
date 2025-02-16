@@ -24,7 +24,7 @@ function Nav({ setSearchQuery, setCategory }) {
     <nav className="navbar">
       {/* LEFT SECTION: Logo & Links */}
       <div className="navbar-left">
-        <span className="navbar-brand">
+        <span className="library-logo">
           <span className="logo">📚</span> Library
         </span>
         <div className="navbar-links">
