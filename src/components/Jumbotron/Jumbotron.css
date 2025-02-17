@@ -1,0 +1,41 @@
+/* src/components/Jumbotron/Jumbotron.css */
+
+.jumbotron-container {
+  color: rgb(238, 217, 148);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25vh; /* Reduced from 50vh to 35vh */
+  text-align: center;
+  padding: 10px; /* Reduce padding for a smaller look */
+}
+
+.jumbotron-content {
+  max-width: 80%;
+}
+
+.jumbotron-content h1 {
+  font-size: 2.5rem; /* Slightly smaller */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.jumbotron-content p {
+  font-size: 1.2rem; /* Reduce paragraph size */
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .jumbotron-container {
+    height: 25vh; /* Even smaller on smaller screens */
+    padding: 5px;
+  }
+
+  .jumbotron-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .jumbotron-content p {
+    font-size: 1rem;
+  }
+}

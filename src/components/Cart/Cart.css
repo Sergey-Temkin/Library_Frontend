@@ -1,0 +1,189 @@
+/* src/components/Cart/Cart.css */
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  background-color: #121212; /* Dark background */
+  color: white; /* Light text for contrast */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.cart-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffffff; /* Ensuring bright contrast */
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  border: 1px solid #333;
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: px;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #444;
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: 15px;
+}
+
+.cart-item-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cart-buttons {
+  justify-content: center;
+  width: 200px;
+  margin-top: 20px;
+  background-color: #006400; /* Dark green */
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cart-buttons:hover {
+  background-color: #004d00; /* Slightly darker green */
+}
+
+/* Empty Cart Message */
+.cart-empty {
+  font-size: 18px;
+  color: #bbb; /* Soft gray */
+  text-align: center;
+  margin-top: 20px;
+}
+
+.cart-delete-button {
+  background-color: #ff4d4d; /* Red for delete */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.cart-delete-button:hover {
+  background-color: #cc0000;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cart-item-details {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .cart-item-image {
+    width: 80%;
+    max-width: 200px;
+    height: auto;
+  }
+}
+.loan-dropdown.dark-mode {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #444;
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+  width: 60%;
+  cursor: pointer;
+}
+
+.loan-dropdown.dark-mode option {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.loan-dropdown.dark-mode:focus {
+  border-color: #888;
+}
+
+.loan-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+
+.loan-button:hover {
+  background-color: #0056b3;
+}
+
+/* Ensures better alignment */
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* Cart Loan Button (separate from Book Menu) */
+.cart-loan-button {
+  width: 80px;
+  background-color: #007bff; /* Blue for loan */
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.cart-loan-button:hover {
+  background-color: #0056b3;
+}
+
+.return-button {
+  width: 80px;
+  background-color: #007bff; /* Blue for loan */
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.return-button:hover {
+  background-color: #0056b3;
+}

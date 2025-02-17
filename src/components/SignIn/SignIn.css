@@ -1,0 +1,53 @@
+/* src/components/SignIn/SignIn.css */
+
+.signin-container {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.signin-container input {
+  width: 90%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background: #333;
+  color: white;
+  outline: none;
+}
+
+.signin-container button {
+  width: 95%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.signin-container button:hover {
+  background-color: #0056b3;
+  transform: scale(1.02);
+}
+
+.alert {
+  background: #0805e9;
+  color: white;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}

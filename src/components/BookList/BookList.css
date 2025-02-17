@@ -1,0 +1,114 @@
+/* src/components/BookList/BookList.css */
+
+/* Book List Container */
+.booklist-container {
+  padding: 50px 100px;
+  background-color: #121212;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Ensures two books per row */
+  gap: 40px; /* Space between cards */
+  max-width: 1100px; /* Prevents cards from stretching too much */
+  margin: 0 auto; /* Centers content */
+}
+
+/* Book Cards */
+.book-card {
+  background-color: #1e1e1e;
+  padding: 70px;
+  border-radius: 40px;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+  width: 40%; /* Ensures only 2 books per row */
+  min-width: 400px;
+  max-width: 500px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.book-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Book Images */
+.book-image {
+  width: 100%; /* 100 */
+  height: 300px; /* Book Images */
+  object-fit: cover;
+  border-radius: 15px;
+  transition: opacity 0.3s;
+}
+
+.book-card:hover .book-image {
+  opacity: 0.9;
+}
+
+/* Book Titles */
+.book-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 15px 0 5px;
+}
+
+/* Category */
+.book-category {
+  font-size: 16px;
+  color: #bbbbbb;
+  margin-bottom: 15px;
+}
+
+/* Button */
+.loan-button {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  width: 100%;
+  max-width: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.loan-button:hover {
+  background: linear-gradient(135deg, #0056b3, #003b80);
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .booklist-container {
+    justify-content: center;
+  }
+  .book-card {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .book-card {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .book-card {
+    width: 95%;
+  }
+
+  .loan-button {
+    font-size: 16px;
+    padding: 12px;
+  }
+}

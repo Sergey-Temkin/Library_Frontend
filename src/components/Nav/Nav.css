@@ -1,0 +1,175 @@
+/* src/components/Nav/Nav.css */
+
+.navbar {
+  background-color: #1e1e1e;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left Section: Library Logo & Links */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 15px;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: default;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Apply hover effect to all buttons except Library */
+.navbar-links a:hover,
+.signin-button:hover,
+.login-button:hover,
+.cart-button:hover {
+  color: #bbb;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Center Section: Search Bar & Category Dropdown */
+.navbar-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 250px;
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: black;
+  color: white;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #bbb;
+}
+
+.search-input:focus {
+  border-color: #888;
+}
+
+/* Dropdown Styling */
+.dropdown {
+  position: relative;
+  display: flex;
+}
+
+.dropbtn {
+  background-color: #444;
+  color: white;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content span {
+  color: white;
+  padding: 10px;
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-content span:hover {
+  background-color: #555;
+}
+
+/* Right Section: Sign In, Login, Cart */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.signin-button,
+.login-button,
+.cart-button {
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+}
+
+.logout-link {
+  font-size: 18px;
+  color: #ff4d4d; /* Red color for logout */
+  cursor: pointer; /* Ensures it looks clickable */
+}
+
+.logout-link:hover {
+  color: #cc0000; /* Darker red on hover */
+}
+
+.library-logo {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: default;
+  display: flex;
+  align-items: center;
+}
+
+.welcome-text {
+  font-size: 18px;
+}
+
+.admin-button {
+  color: white;
+  font-size: 18px;
+  font-weight: none;
+  text-decoration: none;
+  cursor: default;
+  display: flex;
+  align-items: center;
+}
+
+.admin-button:hover {
+  color: #bbb;
+  transition: color 0.3s ease-in-out;
+}

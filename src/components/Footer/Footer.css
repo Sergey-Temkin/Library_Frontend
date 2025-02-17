@@ -1,0 +1,22 @@
+/* src/components/Footer/Footer.css */
+
+.footer-container {
+  text-align: center;
+  background-color: #1e1e1e;
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 50px;
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    font-size: 16px;
+    padding: 15px;
+    height: 80px;
+  }
+}
